@@ -1,9 +1,9 @@
-<%= simple_form_for [:account, @territory, @booking] do |f| %>
+<%= simple_form_for [:account, @bed, @booking] do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :starting_on, collection: Date.today.step(Date.today + 1.year).to_a, disabled: @territory.reserved_dates %>
+  <%= f.input :starting_on, collection: Date.today.step(Date.today + 1.year).to_a, disabled: @bed.reserved_dates %>
   <%= f.input :nb_days, collection: [1, 2, 3, 4, 5, 6, 7], selected: 1 %>
-<!--   <%= f.input :ending_on, collection: Date.today.step(Date.today + 1.year).to_a, disabled: @territory.reserved_dates %> -->
+<!--   <%= f.input :ending_on, collection: Date.today.step(Date.today + 1.year).to_a, disabled: @bed.reserved_dates %> -->
   <%= f.input :message, as: :text %>
   <%= f.button :submit, "Réserver", class: "btn btn-primary" %>
 <% end %>

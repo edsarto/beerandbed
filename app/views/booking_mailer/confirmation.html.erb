@@ -1,9 +1,9 @@
 <p>Bonjour <%= @booking.client.first_name %>,</p>
 
-<p> Votre réservation pour <strong><%= @booking.territory.name %></strong>, à partir du <strong><%= @booking.starting_on %></strong>, sur airgabion.com  est maintenant confirmée !</p>
+<p> Votre réservation pour <strong><%= @booking.bed.name %></strong>, à partir du <strong><%= @booking.starting_on %></strong>, sur airgabion.com  est maintenant confirmée !</p>
 <p>Le montant total de cette réservation s'élève à <strong><%=@booking.total_price%>€</strong>.</p>
 
-<p> <%= @booking.territory.owner.first_name %> vous a envoyé un message :</p>
+<p> <%= @booking.bed.owner.first_name %> vous a envoyé un message :</p>
 <p> <%= @booking.confirmation_message %></p>
 
 <p>Vous pouvez visualisez vos réservations sur <%=link_to 'votre dashboard', account_dashboard_url(@booking.client) %>.</p>

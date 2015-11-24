@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-xs-12 col-md-3 text-left">
     <div class="booking-title">
-      <%= link_to territory_path(booking.territory) do %>
-        <h3><%= booking.territory.name.capitalize %></h3>
+      <%= link_to bed_path(booking.bed) do %>
+        <h3><%= booking.bed.name.capitalize %></h3>
       <% end %>
       <p><%= booking.starting_on %> - <%= booking.ending_on %></p>
     </div>

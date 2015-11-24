@@ -35,7 +35,7 @@ class BookingPolicy < ApplicationPolicy
 
   def accept?
     # only the owner can accept a booking, only if it starts in the future
-    record.territory.owner == user &&
+    record.bed.owner == user &&
     record.starting_on >= Date.today &&
     record.status == :pending
   end
@@ -43,11 +43,11 @@ class BookingPolicy < ApplicationPolicy
   def reject?
     # if starts in the future, both owner and client can reject
     if record.starting_on > Date.today
-      (record.territory.owner == user || record.client == user) &&
+      (record.bed.owner == user || record.client == user) &&
       (record.status == :pending || record.status == :confirmed)
     # is started in the past, both can reject only if status is pending
     elsif record.starting_on <= Date.today
-      (record.territory.owner == user || record.client == user) &&
+      (record.bed.owner == user || record.client == user) &&
       record.status == :pending
     end
   end
@@ -66,11 +66,11 @@ class BookingPolicy < ApplicationPolicy
   def owner_archive?
     # if starts in the future, owner can archive canceled booking
     if record.starting_on > Date.today
-      record.territory.owner == user &&
+      record.bed.owner == user &&
       record.status == :canceled
     # is ended in the past, owner can archive any booking
     elsif record.ending_on <= Date.today
-      record.territory.owner == user
+      record.bed.owner == user
     end
   end
 end

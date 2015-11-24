@@ -1,7 +1,7 @@
-Bonjour <%= @booking.territory.owner.first_name %>,
+Bonjour <%= @booking.bed.owner.first_name %>,
 
-<%= @booking.client.first_name %> souhaite reserver votre installation, <%= @booking.territory.name %>, à partir du <%= @booking.starting_on %> sur airgabion.com ! Le montant total de cette réservation s'élève à <%=@booking.total_price%>€.
-Vous pouvez accepter ou refuser de lui louer votre gabion sur <%=link_to 'votre dashboard', account_dashboard_url(@booking.territory.owner) %>.
+<%= @booking.client.first_name %> souhaite reserver votre installation, <%= @booking.bed.name %>, à partir du <%= @booking.starting_on %> sur airgabion.com ! Le montant total de cette réservation s'élève à <%=@booking.total_price%>€.
+Vous pouvez accepter ou refuser de lui louer votre gabion sur <%=link_to 'votre dashboard', account_dashboard_url(@booking.bed.owner) %>.
 
 <%= @booking.client.first_name %> vous a envoyé un message:
 <%= @booking.message %>

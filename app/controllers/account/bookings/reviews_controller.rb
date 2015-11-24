@@ -20,8 +20,8 @@ module Account
 
         if @review.save
           ReviewMailer.create_review(@review).deliver_later
-          flash[:notice] = "Merci d'avoir noté #{@booking.territory.name}!"
-          redirect_to territory_path(@review.booking.territory)
+          flash[:notice] = "Merci d'avoir noté #{@booking.bed.name}!"
+          redirect_to bed_path(@review.booking.bed)
         else
           render :new
         end

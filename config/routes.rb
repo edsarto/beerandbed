@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
 
-  resources :territories, only: [:index, :show]
+  resources :beds, only: [:index, :show]
   resources :bookings, only: [] do
     resources :credit_cards, only: [:index, :new, :create], controller: 'bookings/credit_cards'
     resource :payment, only: [:show, :new, :create], controller: 'bookings/payment'
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
     resource :dashboard, only: :show, controller: "dashboard"
 
-    resources :territories, only: [:index, :new, :create, :edit, :update, :destroy] do
+    resources :beds, only: [:index, :new, :create, :edit, :update, :destroy] do
       resources :bookings, only: [:index, :new, :create]
       resources :photos, only: [:new, :create, :destroy]
     end

@@ -1,13 +1,13 @@
 module ApplicationHelper
 
-  def owner_is_user(territory)
-    current_user == territory.owner
+  def owner_is_user(bed)
+    current_user == bed.owner
   end
 
-  def territory_bookings(current_user)
+  def bed_bookings(current_user)
     bookings = []
-    current_user.territories.each do |territory|
-      territory.bookings.where(owner_archive: false).each do |booking|
+    current_user.beds.each do |bed|
+      bed.bookings.where(owner_archive: false).each do |booking|
         bookings << booking
       end
     end

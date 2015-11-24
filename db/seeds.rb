@@ -2,11 +2,11 @@ require 'faker'
 
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
-# Create 20 Territories
+# Create 20 Beds
 
 20.times do
   # owner = User.all.sample(1).first
-  territory = Territory.new({
+  bed = Bed.new({
     name:      Faker::Book.title,
     category:  [:hutte, :marais, :autre].sample(1).first,
     street:    Faker::Address.street_address,
@@ -17,6 +17,6 @@ require 'faker'
     picture:   'http://unsplash.it/800?random'
   })
 
-  territory.save
+  bed.save
 
 end

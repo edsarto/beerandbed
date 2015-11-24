@@ -4,7 +4,7 @@ module Account
       def create
         @booking = Booking.find(params[:booking_id])
 
-        if @booking.territory.owner == current_user
+        if @booking.bed.owner == current_user
           @booking.owner_archive = true
           @booking.save
 

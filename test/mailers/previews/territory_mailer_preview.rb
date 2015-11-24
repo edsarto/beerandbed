@@ -1,7 +1,7 @@
-class TerritoryMailerPreview < ActionMailer::Preview
+class BedMailerPreview < ActionMailer::Preview
 
   def creation_confirmation
-    territory = Territory.first
-    TerritoryMailer.creation_confirmation(territory)
+    bed = Bed.first
+    BedMailer.creation_confirmation(bed)
   end
 end

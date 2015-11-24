@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :bookings,     foreign_key: 'client_id', dependent: :destroy
-  has_many :territories,  foreign_key: 'owner_id',  dependent: :destroy
+  has_many :beds,  foreign_key: 'owner_id',  dependent: :destroy
 
   has_one :address
 

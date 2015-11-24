@@ -3,7 +3,7 @@ fr:
     models:
       booking: "Réservation"
       review: "Evalution"
-      territory: "Territoire"
+      bed: "Lit"
       user: "Utilisateur"
       address: "Adresse"
     attributes:
@@ -20,7 +20,7 @@ fr:
         confirmation_message: "Message de confirmation"
         starting_on: "Commence le"
         ending_on: "Se termine le"
-        territory_id: "Identifiant de territoire"
+        bed_id: "Identifiant de lit"
         client_id: "Identifiant de client"
         client_archive: "Archiver pour chasseur"
         owner_archive: "Archiver pour propriétaire"
@@ -28,7 +28,7 @@ fr:
         rating: "Notation"
         comment: "Commentaire"
         booking_id: "Identifiant de réservation"
-      territory:
+      bed:
         name: "Nom"
         description: "Description"
         category: 'Catégorie'

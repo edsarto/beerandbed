@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
 
   belongs_to :booking
-  has_one :territory, through: :booking
+  has_one :bed, through: :booking
 
   validates_presence_of :booking, :rating, :comment
 

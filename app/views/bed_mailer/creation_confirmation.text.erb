@@ -1,0 +1,9 @@
+Bonjour <%= @bed.owner.first_name %>,
+
+Merci d'avoir ajouté <%= @bed.name %> sur airgabion.com !
+
+Nous vous informerons lorsque d'autres passionnés souhaiteront réserver votre installation.
+En attendant, vous pouvez éditer la page de <%=link_to 'votre gabion', bed_url(@bed) %>, ou louer l'installation d'un autre passionné !
+
+Merci pour votre confiance,
+A bientôt sur <%= root_url %>

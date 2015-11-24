@@ -8,7 +8,7 @@ class Payment < ActiveRecord::Base
   monetize :amount_cents
 
   def charge
-    self.booking.territory.owner.create_or_update_wallet
+    self.booking.bed.owner.create_or_update_wallet
     mangopay_request = {
       AuthorId: self.booking.client.mangopay_user_id,
       DebitedFunds: {
@@ -19,7 +19,7 @@ class Payment < ActiveRecord::Base
           Currency: "EUR",
           Amount: self.amount_cents * 0.15
       },
-      CreditedWalletId: self.booking.territory.owner.mangopay_wallet_id,
+      CreditedWalletId: self.booking.bed.owner.mangopay_wallet_id,
       CardId: self.credit_card.mangopay_card_id,
       SecureModeReturnURL: 'https://www.elysee.fr'
     }

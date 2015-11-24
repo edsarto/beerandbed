@@ -1,4 +1,4 @@
-class TerritoryPolicy < ApplicationPolicy
+class BedPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope

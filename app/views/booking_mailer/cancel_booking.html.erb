@@ -1,6 +1,6 @@
 <p>Bonjour <%= @booking.client.first_name %>,</p>
 
-<p>Votre réservation pour <strong><%= @booking.territory.name %></strong>, à partir du <strong><%= @booking.starting_on %></strong> sur airgabion.com a été annulée. Vous pouvez tenter de réserver à d'autres dates, ou pour une autre chasse !</p>
+<p>Votre réservation pour <strong><%= @booking.bed.name %></strong>, à partir du <strong><%= @booking.starting_on %></strong> sur airgabion.com a été annulée. Vous pouvez tenter de réserver à d'autres dates, ou pour une autre chasse !</p>
 
 <p>Vous pouvez également visualiser vos réservations sur <%=link_to 'votre dashboard', account_dashboard_url %>.</p>
 
