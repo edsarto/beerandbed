@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124181539) do
+ActiveRecord::Schema.define(version: 20151124184940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,16 +135,16 @@ ActiveRecord::Schema.define(version: 20151124181539) do
   add_index "payments", ["credit_card_id"], name: "index_payments_on_credit_card_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
-    t.integer  "territory_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "bed_id"
   end
 
-  add_index "photos", ["territory_id"], name: "index_photos_on_territory_id", using: :btree
+  add_index "photos", ["bed_id"], name: "index_photos_on_bed_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
@@ -207,6 +207,6 @@ ActiveRecord::Schema.define(version: 20151124181539) do
   add_foreign_key "credit_cards", "users"
   add_foreign_key "payments", "bookings"
   add_foreign_key "payments", "credit_cards"
-  add_foreign_key "photos", "beds", column: "territory_id"
+  add_foreign_key "photos", "beds"
   add_foreign_key "reviews", "bookings"
 end
