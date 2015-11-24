@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124150727) do
+ActiveRecord::Schema.define(version: 20151124181539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 20151124150727) do
     t.date     "starting_on"
     t.date     "ending_on"
     t.string   "status"
-    t.integer  "territory_id"
     t.integer  "client_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
@@ -103,10 +102,11 @@ ActiveRecord::Schema.define(version: 20151124150727) do
     t.integer  "total_price_cents",    default: 0,     null: false
     t.string   "checkout_status"
     t.integer  "nb_days"
+    t.integer  "bed_id"
   end
 
+  add_index "bookings", ["bed_id"], name: "index_bookings_on_bed_id", using: :btree
   add_index "bookings", ["client_id"], name: "index_bookings_on_client_id", using: :btree
-  add_index "bookings", ["territory_id"], name: "index_bookings_on_territory_id", using: :btree
 
   create_table "credit_cards", force: :cascade do |t|
     t.string   "name"
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(version: 20151124150727) do
   add_foreign_key "addresses", "bookings"
   add_foreign_key "addresses", "users"
   add_foreign_key "beds", "users", column: "owner_id"
-  add_foreign_key "bookings", "beds", column: "territory_id"
+  add_foreign_key "bookings", "beds"
   add_foreign_key "bookings", "users", column: "client_id"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "payments", "bookings"
