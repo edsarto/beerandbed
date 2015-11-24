@@ -1,0 +1,43 @@
+<%= simple_form_for @user, url: account_profile_path do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row padded">
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+      <%= image_tag user_pict(current_user), class: "profile-pict"%>
+      <%= f.input :picture, placeholder: "hello" %>
+    </div>
+    <div class="col-xs-12 col-md-3">
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :bio %>
+    </div>
+  </div>
+  <div class="row padded">
+    <div class="col-xs-12 col-md-3 col-md-offset-1 text-left">
+      <%= image_tag licence_pict(current_user), class: "other-pict" %>
+      <%= f.input :licence %>
+    </div>
+<!--   </div>
+  <div class="row"> -->
+    <div class="col-xs-12 col-md-3 tex-left">
+      <%= image_tag stamp_pict(current_user), class: "other-pict" %>
+      <%= f.input :stamp %>
+    </div>
+<!--   </div>
+  <div class="row"> -->
+    <div class="col-xs-12 col-md-3 text-left">
+      <%= image_tag insurance_pict(current_user), class: "other-pict" %>
+      <%= f.input :insurance %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+      <%= f.button :submit, "Enregistrer", class: 'btn btn-primary edit-btn'%>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+      <%= link_to edit_user_registration_path, class: "btn btn-info edit-btn center" do %>
+        Modifier le Mot de Passe
+      <% end %>
+    </div>
+  </div>
+<% end %>

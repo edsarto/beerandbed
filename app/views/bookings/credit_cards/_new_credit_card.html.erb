@@ -1,0 +1,68 @@
+
+  <%= form_tag '#', method: :get, id: 'payment', class: 'form' do %>
+    <div class="form-group">
+      <%= label_tag :card_name, 'Titulaire de la carte' %>
+      <%= text_field_tag :card_name, nil, 'name' => nil, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :card_number, 'Numéro de la carte' %>
+      <%= text_field_tag :card_number, nil, 'name' => nil, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :card_exp_date, "Date d'expiration" %>
+      <%= text_field_tag :card_exp_date, nil, 'name' => nil, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :card_cvx, "Cryptogramme" %>
+      <%= text_field_tag :card_cvx, nil, 'name' => nil, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :name, 'Nom de votre carte pour prochaines utilisations' %>
+      <%= text_field_tag :name, nil, 'name' => nil, class: 'form-control' %>
+    </div>
+    <%= submit_tag 'Ajouter cette carte de paiement', class: "btn btn-primary" %>
+  <% end %>
+
+  <div class="hidden">
+    <%= form_tag booking_credit_cards_path, id: "credit_card" do %>
+    <%= text_field_tag :mangopay_card_id %>
+    <%= text_field_tag :credit_card_name %>
+    <% end %>
+  </div>
+
+<% content_for(:after_js) do %>
+  <script>
+    mangoPay.cardRegistration.baseURL = "<%= ENV['MANGOPAY_API_URL'] %>";
+        mangoPay.cardRegistration.clientId = '<%= ENV['MANGOPAY_CLIENT_ID'] %>';
+
+        mangoPay.cardRegistration.init({
+          cardRegistrationURL: "<%= @card_registration["CardRegistrationURL"] %>",
+          preregistrationData: "<%= @card_registration["PreregistrationData"] %>",
+          accessKey: "<%= @card_registration["AccessKey"] %>",
+          Id: "<%= @card_registration["Id"] %>"
+        });
+
+        // Register card
+        $("#payment").submit(function(event) {
+          event.preventDefault();
+          var cardData = {
+            cardNumber: $("#card_number").val(),
+            cardExpirationDate: $("#card_exp_date").val().replace('/',''),
+            cardCvx: $("#card_cvx").val(),
+            cardType: 'CB_VISA_MASTERCARD'
+          };
+
+          mangoPay.cardRegistration.registerCard(
+            cardData,
+            function(res) {
+              $('#mangopay_card_id').val(res.CardId);
+              $('#credit_card_name').val($('#name').val());
+              $('#credit_card').submit();
+            },
+            function(res) {
+              console.log(res.ResultMessage);
+            }
+          )
+        });
+  </script>
+<% end %>

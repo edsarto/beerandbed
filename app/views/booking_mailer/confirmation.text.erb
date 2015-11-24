@@ -1,0 +1,12 @@
+Bonjour <%= @booking.client.first_name %>,
+
+Votre réservation pour <%= @booking.territory.name %>, à partir du <%= @booking.starting_on %>, sur airgabion.com  est maintenant confirmée !
+Le montant total de cette réservation s'élève à <%=@booking.total_price%>€.
+
+<%= @booking.territory.owner.first_name %> vous a envoyé un message:
+<%= @booking.confirmation_message %>
+
+Vous pouvez visualisez vos réservations sur <%=link_to 'votre dashboard', account_dashboard_url(@booking.client) %>.
+
+Merci pour votre confiance,
+A bientôt sur <%= link_to 'airgabion.com !', root_url %>

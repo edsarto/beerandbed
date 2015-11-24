@@ -1,0 +1,32 @@
+
+  <div class="col-xs-12 col-md-4 text-center">
+    <div class="map-card">
+    <div class="card">
+      <div class="card-link">
+        <%= link_to territory_path(territory) do %>
+          <div class="card-bg" style="background-image:url(<%= territory.picture.url (:medium) %>)">
+          </div>
+          <div>
+            <%= image_tag user_pict(territory.owner), class: "card-user avatar avatar-large avatar-bordered" %>
+          </div>
+          <div class="card-price"><h5><%= number_with_precision(territory.price, precision: 0) %>€ / nuit</h5></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="card-text text-left">
+      <%= link_to territory_path(territory) do %>
+        <h5><%= territory.name %></h5>
+      <% end %>
+    </div>
+    <div class="text-left">
+      <p><%= territory.category_text %> - <%= territory.city %></p>
+    </div>
+    <% if owner_is_user(territory) %>
+      <div class="card-edit text-left">
+        <%= link_to edit_account_territory_path(territory) do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

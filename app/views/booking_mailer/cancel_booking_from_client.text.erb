@@ -1,0 +1,8 @@
+Bonjour <%=@booking.territory.owner.first_name%>,
+
+La réservation de <%= @booking.client.first_name %> pour <%= @booking.territory.name %>, le <%= @booking.starting_on %>, a été annulée.
+
+Vous pouvez visualiser vos réservations sur votre dashboard: <%= account_dashboard_url %>.
+
+Merci pour votre confiance,
+A bientôt sur <%=root_url %>

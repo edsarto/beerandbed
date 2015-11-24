@@ -1,0 +1,120 @@
+/* -------------------------------------
+ * Utilities classes
+ * These are examples of utilities classes
+ * Feel free to change them and create your own
+ * ------------------------------------- */
+.edit-box {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+
+.map-card {
+  border: 1px solid #f1f1f1;
+  padding: 0px 10px;
+  margin: 5px 0px;
+}
+
+.edit-btn {
+  margin: 5px;
+}
+
+.padded {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.padding-top {
+  padding-top: 1em;
+}
+
+.padding-bottom {
+  padding-bottom: 1em;
+}
+
+// Backgrounds
+.bg-black {
+  background: #4a4a4a;
+}
+.bg-grey {
+  background: #aeaeae;
+}
+.bg-blue {
+  background: #00a3e1;
+}
+.bg-dark-blue {
+  background: #3b5998;
+}
+
+.bg-white {
+  background: white;
+}
+
+#body-wrapper {
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 30px;
+  background-color: white;
+  min-height: 950px;
+}
+
+.gradient {
+  background-image: linear-gradient(-225deg, rgba(168, 99, 0, 0.03) 0%, rgba(0, 36, 61, 0.28) 40%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 0;
+  border-top: 1px solid #dce0e0;
+}
+
+body {
+  padding-top: 50px;
+}
+
+@media (max-width: 768px){
+  .hidden-xs {
+    display: none;
+  }
+}
+
+@media (min-width: 768px){
+  .hidden-sm {
+    display: none;
+  }
+}
+
+@media (min-width: 992px){
+  .hidden-md {
+    display: none;
+  }
+}
+
+@media (max-width: 768px){
+  .allwidth-xs {
+    width: 100%;
+  }
+}
+
+.searchbar-input {
+  display: block;
+  height: 44px;
+  padding-left: 12px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.searchbar-button {
+  height: 44px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#relative {
+  position: relative;
+}

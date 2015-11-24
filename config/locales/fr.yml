@@ -1,0 +1,82 @@
+fr:
+  activerecord:
+    models:
+      booking: "Réservation"
+      review: "Evalution"
+      territory: "Territoire"
+      user: "Utilisateur"
+      address: "Adresse"
+    attributes:
+      created_at: "Créé le"
+      updated_at: "Mis à jour le"
+      booking:
+        start_date: "Date de début"
+        end_date: "Date de fin"
+        nb_days: "Nombre de jours"
+        total_price: "Prix total"
+        status: "Statut"
+        client: "Client"
+        message: "Message"
+        confirmation_message: "Message de confirmation"
+        starting_on: "Commence le"
+        ending_on: "Se termine le"
+        territory_id: "Identifiant de territoire"
+        client_id: "Identifiant de client"
+        client_archive: "Archiver pour chasseur"
+        owner_archive: "Archiver pour propriétaire"
+      review:
+        rating: "Notation"
+        comment: "Commentaire"
+        booking_id: "Identifiant de réservation"
+      territory:
+        name: "Nom"
+        description: "Description"
+        category: 'Catégorie'
+        owner_id: "Identifiant propriétaire"
+        price: "Prix"
+        street: "Rue"
+        city: "Ville"
+        zipcode: "Code postal"
+        max_number_of_guests: "Nombre de personnes maximum"
+        policy: "Politique"
+        picture_content_type: "Type de fichier image"
+        picture_file_size: "Taille de fichier image"
+        picture_updated_at: "Image mis à jour le"
+        picture_file_name: "Nom du fichier image"
+        picture: "Photo"
+        direction: "Itinéraire"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        address: "Adresse"
+      user:
+        first_name: "Prénom"
+        last_name: "Nom"
+        picture: "Photo de profil"
+        email: "email"
+        current_password: "mot de passe actuel"
+        password: "mot de passe"
+        password_confirmation: "confirmation du mot de passe"
+        licence: "Permis de chasser"
+        stamp: "Validation"
+        insurance: "Assurance"
+        remember_me: Se souvenir de moi
+      address:
+        first_name: "Prénom"
+        last_name: "Nom"
+        address: "Adresse"
+        zipcode: "Code postal"
+        city: "Ville"
+  enumerize:
+    category:
+      hutte: 'Hutte de chasse'
+      marais: 'Marais'
+      autre: 'Autre'
+    status:
+      pending: 'En attente'
+      confirmed: 'Confirmé'
+      canceled: 'Annulé'
+    payment_state:
+      cart: "Ajouté au panier"
+      address: "Adresse de facturation renseignée"
+      payment: "Paiement en cours"
+      paid: "Payé"

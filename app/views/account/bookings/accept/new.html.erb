@@ -1,0 +1,27 @@
+<div class= 'container padded'>
+  <div class="container">
+    <div class="map-card">
+      <div class="row">
+        <div class="col-xs-10 col-md-6 col-md-offset-3">
+          <h2>Confirmation de réservation pour <%= @booking.territory.name %></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-10 col-md-8 col-md-offset-2 text-center padded">
+          <p>Souhaitez la bienvenue à <%= @booking.client.first_name %> votre invité! N'hésitez pas à lui envoyer des information qui pourraient lui être utiles, comme votre numéro de téléphone ou votre adresse email.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-10 col-md-6 col-md-offset-3 padded">
+          <%= render 'form' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    mixpanel.track("Page Loaded", {"Page Name": "Accept Booking"});
+    mixpanel.identify("<%= current_user.id %>");
+</script>

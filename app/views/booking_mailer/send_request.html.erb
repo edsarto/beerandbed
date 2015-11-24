@@ -1,0 +1,15 @@
+<p>Bonjour <%= @booking.territory.owner.first_name %>,</p>
+
+<p> <%= @booking.client.first_name %> souhaite reserver votre territoire, <strong><%= @booking.territory.name %></strong>, à partir du <strong><%= @booking.starting_on %></strong> sur airgabion.com ! Le montant total de cette réservation s'élève à <strong><%=@booking.total_price%>€</strong>. </p>
+<p>Vous pouvez accepter ou refuser de lui louer votre gabion sur vos <%=link_to 'Réservations', account_dashboard_url(@booking.territory.owner) %>.</p>
+
+<p> <%= @booking.client.first_name %> vous a envoyé un message:</p>
+<p> <%= @booking.message %></p>
+
+
+<p>Merci pour votre confiance,</p>
+<p>A bientôt sur <%= link_to 'airgabion.com !', root_url %> </p>
+
+<div>
+  <%= image_tag 'airgabion-logo-03.png', width: '200px' %>
+</div>

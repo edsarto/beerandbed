@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-xs-12 col-md-3 text-left">
+    <div class="booking-title">
+      <%= link_to territory_path(booking.territory) do %>
+        <h3><%= booking.territory.name.capitalize %></h3>
+      <% end %>
+      <p><%= booking.starting_on %> - <%= booking.ending_on %></p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-1 text-left">
+    <div class="booking-status">
+      <p><%= booking.total_price %>€</p>
+      <p><strong><%= booking.status_text %></strong></p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-3 text-left">
+    <div class="booking-status">
+      <% if booking.status == :confirmed %>
+        <p><strong>Contact :</strong></p>
+        <p><%= booking.territory.owner.email %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-3 text-left">
+    <div class="booking-status">
+      <% if booking.status == :confirmed %>
+        <p><strong>Pour s'y rendre :</strong></p>
+        <p><%= booking.territory.direction %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-2 text-center">
+    <% if policy(booking).reject? %>
+      <div>
+        <%= link_to account_booking_reject_path(booking), class: "btn btn-danger btn-block btn-booking", method: :post do %>
+          <h5>Annuler</h5>
+        <% end %>
+      </div>
+    <% end %>
+    <% if policy(booking).client_archive? %>
+      <div>
+        <%= link_to account_booking_client_archive_path(booking), class: "btn btn-info btn-block btn-booking", method: :post do %>
+          <h5>Archiver</h5>
+        <% end %>
+      </div>
+    <% end %>
+    <% if policy(booking.reviews.build).create? %>
+      <div>
+        <%= link_to new_account_booking_reviews_path(booking), class: "btn btn-success btn-block btn-booking" do %>
+          <h5>Donnez votre avis !</h5>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <hr>
+  </div>
+</div>

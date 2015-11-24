@@ -1,0 +1,8 @@
+<%= simple_form_for @booking, url: account_booking_accept_path(@booking), method: 'post' do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :confirmation_message, as: :text %>
+
+  <%= f.submit 'Envoyer' %>
+<% end %>
+

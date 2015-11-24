@@ -1,0 +1,6 @@
+<%= simple_form_for [:account, @territory, @photo] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :picture %>
+
+  <%= f.button :submit, "Enregistrer", class: 'btn btn-primary' %>
+<% end %>

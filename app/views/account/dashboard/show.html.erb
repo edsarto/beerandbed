@@ -1,0 +1,60 @@
+<% if current_user.bookings.exists?  %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center padded">
+        <h1>Vos réservations en tant que chasseur</h1>
+      </div>
+    </div>
+      <% current_user.bookings.where(client_archive: false).order(starting_on: :asc).each do |booking| %>
+        <%= render 'client_booking', booking: booking %>
+      <% end %>
+  </div>
+<% else %>
+  <div class="col-xs-12 text-center padded">
+    <p>Vous n'avez pas encore de réservation en tant que chasseur</p>
+    <p><%= link_to ">> Réservez votre première hutte de chasse ! <<", territories_path, class: "btn btn-primary" %></p>
+    <hr>
+  </div>
+<% end %>
+<% if territory_bookings(current_user).count > 0 %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center padded">
+        <h1>Vos réservations en tant que propriétaire</h1>
+      </div>
+    </div>
+      <% territory_bookings(current_user).each do |booking| %>
+        <%= render 'owner_booking', booking: booking %>
+      <% end %>
+  </div>
+<% else %>
+  <div class="col-xs-12 text-center padded">
+    <p>Vous n'avez pas encore de réservation en tant que propriétaire</p>
+    <hr>
+  </div>
+<% end %>
+<% if current_user.territories.exists? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center padded">
+        <h1>Vos territoires</h1>
+      </div>
+    </div>
+    <div class="row">
+      <% current_user.territories.each do |territory| %>
+        <%= render 'territories/territory_card', territory: territory %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="col-xs-12 text-center padded">
+    <p>Vous n'avez pas encore ajouté de territoire de chasse</p>
+    <p><%= link_to ">> Louez votre hutte de chasse dès maintenant ! <<", new_account_territory_path, class: "btn btn-primary" %></p>
+    <hr>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+    mixpanel.track("Page Loaded", {"Page Name": "Dashboard"});
+</script>
+

@@ -1,0 +1,15 @@
+<p>Bonjour <%= @review.booking.territory.owner.first_name %>,</p>
+
+<p><%= @review.booking.client.first_name %> a posté un avis sur <%= @review.booking.territory.name%>!</p>
+
+<p>Son avis: <%= @review.rating%>/5</p>
+<p><%=@review.comment%></p>
+
+<p>Vous pouvez également visualiser l'ensemble des avis sur votre <%=link_to 'votre hutte', territory_url(@review.booking.territory) %>.</p>
+
+<p>Merci pour votre confiance,</p>
+<p>A bientôt sur <%= link_to 'airgabion.com !', root_url %> </p>
+
+<div>
+  <%= image_tag 'airgabion-logo-03.png', width: '200px' %>
+</div>

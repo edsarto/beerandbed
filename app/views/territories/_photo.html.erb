@@ -1,0 +1,16 @@
+
+<div class="col-xs-12 col-md-4 text-center">
+  <div class="card">
+    <div class="card-bg" style="background-image:url(<%= photo.picture.url %>)">
+    </div>
+  </div>
+  <% if owner_is_user(photo.territory) %>
+    <div class="top-right">
+      <%= link_to account_territory_photo_path(photo.territory, photo), method: :delete do %>
+        <h4>
+          <i class="fa fa-trash"></i>
+        </h4>
+      <% end %>
+    </div>
+  <% end %>
+</div>

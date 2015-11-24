@@ -1,0 +1,58 @@
+<div>
+  <div id="relative" class="home-ban">
+    <div id="video" class="hidden-xs gradient" data-vide-bg="mp4: https://air-gabion.s3.amazonaws.com/<%= Rails.env %>/airgabion-cover.mp4, poster: https://air-gabion.s3.amazonaws.com/<%= Rails.env %>/airgabion-cover.jpg" data-vide-options="posterType: jpg, loop: true, muted: true, position: center"></div>
+    <div id="home-img" class="hidden-sm hidden-md"></div>
+    <div class="gradient"></div>
+    <div class="container intro-text">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <div class="text-center padding-top">
+            <h1>BIENTÔT L'HEURE DE LA PASSÉE</h1>
+            <h4>Louez une hutte à un autre passionné de gibier d'eau !</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="search-bar">
+      <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
+            <form role="form" action="/territories/" class="form-horizontal">
+              <fieldset>
+                <div class="input-group text-center">
+                  <label class="control-label"></label>
+                  <%= text_field_tag :city, params[:city], id: "user_input_autocomplete_address", class: "form-control", placeholder: "Ville" %>
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </fieldset>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 padding-top">
+        <h5><strong>Chassez dans les meilleures huttes de France</strong></h5>
+      </div>
+      <% @territories.each do |territory| %>
+      <%= render 'territories/territory_card', territory: territory %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    mixpanel.track("Page Loaded", {"Page Name": "Home Page"});
+</script>
+
+<% content_for(:after_js) do %>
+  <!-- Custom JS code to bind to Autocomplete API -->
+  <!-- find it here: https://github.com/lewagon/google-place-autocomplete/blob/gh-pages/autocomplete.js -->
+  <!-- We'll detail this file in the article -->
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=#{ENV['GGL_MAP_JS_BROWSER_API_KEY']}" %>
+  <%= javascript_include_tag 'autocomplete.js' %>
+
+<% end %>

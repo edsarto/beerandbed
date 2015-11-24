@@ -1,0 +1,29 @@
+<div class="col-xs-12 col-md-8 col-md-offset-2 text-left">
+  <div class="row">
+    <div class="col-xs-3">
+      <%= link_to profile_path(review.booking.client) do %>
+        <%= image_tag user_pict(review.booking.client), class: "avatar avatar-large avatar-bordered" %>
+        <p class="padding-top"><strong><%= review.booking.client.first_name %></strong></p>
+      <% end %>
+    </div>
+    <div class="col-xs-9 text-left">
+      <p>
+        <% i = 0 %>
+        <% 5.times do |i| %>
+          <% i += 1 %>
+          <% if i <= review.rating %>
+            <i class="fa fa-star colored"></i>
+          <% else %>
+            <i class="fa fa-star uncolored"></i>
+          <% end %>
+        <% end %>
+      </p>
+      <p><%= review.comment %></p>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-3">
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

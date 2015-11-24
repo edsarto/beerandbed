@@ -1,0 +1,13 @@
+<p>Bonjour <%=@booking.territory.owner.first_name%>,</p>
+
+
+<p> La réservation de <%= @booking.client.first_name %> pour <strong><%= @booking.territory.name %></strong>, le <strong><%= @booking.starting_on %></strong>, a été annulée.</p>
+
+<p>Vous pouvez visualiser vos réservations sur <%=link_to 'votre dashboard', account_dashboard_url %>.</p>
+
+<p>Merci pour votre confiance,</p>
+<p>A bientôt sur <%= link_to 'airgabion.com !', root_url %> </p>
+
+<div>
+  <%= image_tag 'airgabion-logo-03.png', width: '200px' %>
+</div>

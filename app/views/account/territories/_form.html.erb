@@ -1,0 +1,17 @@
+<%= simple_form_for [:account, @territory] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :category, prompt: "Selectionnez categorie" %>
+  <%= f.input :description %>
+  <%= f.input :max_number_of_guests, collection: 0..8 %>
+  <%= f.input :street %>
+  <%= f.input :zipcode %>
+  <%= f.input :city %>
+  <%= f.input :direction %>
+  <%= f.input :policy, placeholder: 'Behaviors you expect' %>
+  <%= f.input :price %>
+  <%= f.input :picture %>
+
+  <%= f.button :submit, "Enregistrer", class: 'btn btn-primary' %>
+<% end %>

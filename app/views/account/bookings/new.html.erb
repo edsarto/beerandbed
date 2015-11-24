@@ -1,0 +1,41 @@
+<div class= 'container padded'>
+  <div class="row">
+    <div class="col-xs-12 col-md-3 padding-top">
+      <div class="text-center step_done">
+      <span>1. Réservation</span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-3 padding-top">
+      <div class="text-center step_todo">
+      <span>2. Adresse</span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-3 padding-top">
+      <div class="text-center step_todo">
+      <span>3. Paiement</span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-3 padding-top">
+      <div class="text-center step_todo">
+      <span>4. Confirmation</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="map-card">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
+        <h1>Nouvelle réservation pour <%= @territory.name %></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-offset-4 padded">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    mixpanel.track("Page Loaded", {"Page Name": "New Booking"});
+</script>

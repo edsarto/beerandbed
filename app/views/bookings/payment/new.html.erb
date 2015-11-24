@@ -1,0 +1,55 @@
+<div class= 'container padded'>
+  <div class="row">
+    <div class="col-xs-12 col-md-3 padding-top">
+      <div class="text-center step_done">
+      <span>1. Réservation</span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-3 padding-top">
+      <div class="text-center step_done">
+      <span>2. Adresse</span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-3 padding-top">
+      <div class="text-center step_done">
+      <span>3. Paiement</span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-3 padding-top">
+      <div class="text-center step_todo">
+      <span>4. Confirmation</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="map-card">
+    <div class="row">
+      <div id="existing_credit_card">
+        <div class="col-xs-10 col-md-6 col-md-offset-3 padding-top">
+          <%= simple_form_for @payment, url: booking_payment_path do |f| %>
+            <%= f.error_notification %>
+            <%= f.association :credit_card, collection: @credit_cards, prompt: "Choisissez une CB", label: false %>
+
+            <%= f.button :submit, "Payer avec une carte enregistrée", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-md-6 col-md-offset-3">
+        <div class="padding-top padding-bottom">
+          <h5 class><strong>Ou ajoutez d'abord une nouvelle carte de paiement</strong></h5>
+          <div class="btn btn-primary" id="new_card_btn"><h5>Ajouter une carte de paiement</h5></div>
+        </div>
+        <div class="padded hidden" id="new_credit_card">
+          <%= render 'bookings/credit_cards/new_credit_card' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    mixpanel.track("Page Loaded", {"Page Name": "Payment"});
+</script>

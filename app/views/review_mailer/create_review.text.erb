@@ -1,0 +1,11 @@
+Bonjour <%= @review.booking.territory.owner.first_name %>,
+
+<%= @review.booking.client.first_name %> a posté un avis sur <%= @review.booking.territory.name%>!
+
+Son avis: <%= @review.rating%>/5
+<%=@review.comment%>
+
+Vous pouvez également visualiser l'ensemble des avis sur votre <%=link_to 'votre hutte', territory_url(@review.booking.territory) %>.
+
+Merci pour votre confiance,
+A bientôt sur <%= link_to 'airgabion.com !', root_url %>
