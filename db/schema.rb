@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104150250) do
+ActiveRecord::Schema.define(version: 20151124150727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,30 @@ ActiveRecord::Schema.define(version: 20151104150250) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "beds", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "category"
+    t.string   "street"
+    t.string   "city"
+    t.string   "zipcode"
+    t.integer  "max_number_of_guests"
+    t.text     "policy"
+    t.integer  "owner_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.text     "direction"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "price_cents",          default: 0, null: false
+  end
+
+  add_index "beds", ["owner_id"], name: "index_beds_on_owner_id", using: :btree
 
   create_table "bookings", force: :cascade do |t|
     t.date     "starting_on"
@@ -132,30 +156,6 @@ ActiveRecord::Schema.define(version: 20151104150250) do
 
   add_index "reviews", ["booking_id"], name: "index_reviews_on_booking_id", using: :btree
 
-  create_table "territories", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "category"
-    t.string   "street"
-    t.string   "city"
-    t.string   "zipcode"
-    t.integer  "max_number_of_guests"
-    t.text     "policy"
-    t.integer  "owner_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
-    t.text     "direction"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.integer  "price_cents",          default: 0, null: false
-  end
-
-  add_index "territories", ["owner_id"], name: "index_territories_on_owner_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -201,12 +201,12 @@ ActiveRecord::Schema.define(version: 20151104150250) do
 
   add_foreign_key "addresses", "bookings"
   add_foreign_key "addresses", "users"
-  add_foreign_key "bookings", "territories"
+  add_foreign_key "beds", "users", column: "owner_id"
+  add_foreign_key "bookings", "beds", column: "territory_id"
   add_foreign_key "bookings", "users", column: "client_id"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "payments", "bookings"
   add_foreign_key "payments", "credit_cards"
-  add_foreign_key "photos", "territories"
+  add_foreign_key "photos", "beds", column: "territory_id"
   add_foreign_key "reviews", "bookings"
-  add_foreign_key "territories", "users", column: "owner_id"
 end

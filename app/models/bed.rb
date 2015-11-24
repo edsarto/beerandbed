@@ -1,4 +1,4 @@
-class Territory < ActiveRecord::Base
+class Bed < ActiveRecord::Base
   extend Enumerize
 
   monetize :price_cents

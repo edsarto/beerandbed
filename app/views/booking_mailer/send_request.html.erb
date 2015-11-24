@@ -1,7 +1,7 @@
-<p>Bonjour <%= @booking.territory.owner.first_name %>,</p>
+<p>Bonjour <%= @booking.bed.owner.first_name %>,</p>
 
-<p> <%= @booking.client.first_name %> souhaite reserver votre territoire, <strong><%= @booking.territory.name %></strong>, à partir du <strong><%= @booking.starting_on %></strong> sur airgabion.com ! Le montant total de cette réservation s'élève à <strong><%=@booking.total_price%>€</strong>. </p>
-<p>Vous pouvez accepter ou refuser de lui louer votre gabion sur vos <%=link_to 'Réservations', account_dashboard_url(@booking.territory.owner) %>.</p>
+<p> <%= @booking.client.first_name %> souhaite reserver votre lit, <strong><%= @booking.bed.name %></strong>, à partir du <strong><%= @booking.starting_on %></strong> sur airgabion.com ! Le montant total de cette réservation s'élève à <strong><%=@booking.total_price%>€</strong>. </p>
+<p>Vous pouvez accepter ou refuser de lui louer votre gabion sur vos <%=link_to 'Réservations', account_dashboard_url(@booking.bed.owner) %>.</p>
 
 <p> <%= @booking.client.first_name %> vous a envoyé un message:</p>
 <p> <%= @booking.message %></p>

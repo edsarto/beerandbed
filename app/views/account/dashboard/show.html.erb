@@ -12,18 +12,18 @@
 <% else %>
   <div class="col-xs-12 text-center padded">
     <p>Vous n'avez pas encore de réservation en tant que chasseur</p>
-    <p><%= link_to ">> Réservez votre première hutte de chasse ! <<", territories_path, class: "btn btn-primary" %></p>
+    <p><%= link_to ">> Réservez votre première hutte de chasse ! <<", bed_path, class: "btn btn-primary" %></p>
     <hr>
   </div>
 <% end %>
-<% if territory_bookings(current_user).count > 0 %>
+<% if bed_bookings(current_user).count > 0 %>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center padded">
         <h1>Vos réservations en tant que propriétaire</h1>
       </div>
     </div>
-      <% territory_bookings(current_user).each do |booking| %>
+      <% bed_bookings(current_user).each do |booking| %>
         <%= render 'owner_booking', booking: booking %>
       <% end %>
   </div>
@@ -33,23 +33,23 @@
     <hr>
   </div>
 <% end %>
-<% if current_user.territories.exists? %>
+<% if current_user.beds.exists? %>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center padded">
-        <h1>Vos territoires</h1>
+        <h1>Vos lits</h1>
       </div>
     </div>
     <div class="row">
-      <% current_user.territories.each do |territory| %>
-        <%= render 'territories/territory_card', territory: territory %>
+      <% current_user.beds.each do |bed| %>
+        <%= render 'beds/bed_card', bed: bed %>
       <% end %>
     </div>
   </div>
 <% else %>
   <div class="col-xs-12 text-center padded">
-    <p>Vous n'avez pas encore ajouté de territoire de chasse</p>
-    <p><%= link_to ">> Louez votre hutte de chasse dès maintenant ! <<", new_account_territory_path, class: "btn btn-primary" %></p>
+    <p>Vous n'avez pas encore ajouté de lit</p>
+    <p><%= link_to ">> Louez votre hutte de chasse dès maintenant ! <<", new_account_bed_path, class: "btn btn-primary" %></p>
     <hr>
   </div>
 <% end %>

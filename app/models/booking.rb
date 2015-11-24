@@ -3,13 +3,13 @@ class Booking < ActiveRecord::Base
 
   monetize :total_price_cents
 
-  belongs_to :territory
+  belongs_to :bed
   belongs_to :client, class_name: "User", foreign_key: "client_id"
   has_many :reviews, dependent: :destroy
   has_one :address, dependent: :destroy
   has_many :payments, dependent: :destroy
 
-  validates_presence_of :client, :territory, :starting_on, :ending_on, :nb_days, :status, :checkout_status
+  validates_presence_of :client, :bed, :starting_on, :ending_on, :nb_days, :status, :checkout_status
   enumerize :status, in: [:checkout, :pending, :confirmed, :canceled], default: :checkout
   enumerize :checkout_status, in: [:cart, :address, :payment, :paid], default: :cart
 
@@ -19,8 +19,8 @@ class Booking < ActiveRecord::Base
     starting_on > ending_on
   end
 
-  def self.booked?(territory_id, starting_on, ending_on)
-    @bookings = Booking.where(territory_id: territory_id)
+  def self.booked?(bed_id, starting_on, ending_on)
+    @bookings = Booking.where(bed_id: bed_id)
 
     if @bookings.empty?
       return false

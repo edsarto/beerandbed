@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  belongs_to :territory
+  belongs_to :bed
 
   has_attached_file :picture,
     styles: { large: "1000x1000>", medium: "300x300>", thumb: "100x100>" }

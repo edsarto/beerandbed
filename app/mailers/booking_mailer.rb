@@ -4,7 +4,7 @@ class BookingMailer < ApplicationMailer
     @booking = booking
 
     mail(
-      to: @booking.territory.owner.email,
+      to: @booking.bed.owner.email,
       subject: 'Nouvelle demande de réservation !'
       )
   end
@@ -23,7 +23,7 @@ class BookingMailer < ApplicationMailer
 
     mail(
       to: @booking.client.email,
-      subject: "#{@booking.territory.owner.first_name} a annulé votre réservation"
+      subject: "#{@booking.bed.owner.first_name} a annulé votre réservation"
       )
   end
 
@@ -31,7 +31,7 @@ class BookingMailer < ApplicationMailer
     @booking = booking
 
     mail(
-      to: @booking.territory.owner.email,
+      to: @booking.bed.owner.email,
       subject: "La réservation de #{@booking.client.first_name} est annulée"
       )
   end

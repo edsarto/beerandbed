@@ -1,7 +1,7 @@
-<p>Bonjour <%=@booking.territory.owner.first_name%>,</p>
+<p>Bonjour <%=@booking.bed.owner.first_name%>,</p>
 
 
-<p> La réservation de <%= @booking.client.first_name %> pour <strong><%= @booking.territory.name %></strong>, le <strong><%= @booking.starting_on %></strong>, a été annulée.</p>
+<p> La réservation de <%= @booking.client.first_name %> pour <strong><%= @booking.bed.name %></strong>, le <strong><%= @booking.starting_on %></strong>, a été annulée.</p>
 
 <p>Vous pouvez visualiser vos réservations sur <%=link_to 'votre dashboard', account_dashboard_url %>.</p>
 

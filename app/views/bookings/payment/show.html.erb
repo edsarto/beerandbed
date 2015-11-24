@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3 text-left padding-top">
         <h3>Récapitulatif de votre réservation :</h3>
-        <h5 class="padding-top"><strong><%= @booking.territory.name %></strong> - <%= @booking.status_text %></h5>
+        <h5 class="padding-top"><strong><%= @booking.bed.name %></strong> - <%= @booking.status_text %></h5>
         <p><strong>Prix : </strong><%= humanized_money @booking.total_price %> €</p>
         <p><strong>Date : </strong><%= @booking.starting_on %></p>
         <p><strong>Nombre de jours : </strong><%= @booking.nb_days %></p>

@@ -3,7 +3,7 @@ module Account
     class RejectController < Account::Base
       def create
         @booking = Booking.find(params[:booking_id])
-        if @booking.territory.owner == current_user || @booking.client == current_user
+        if @booking.bed.owner == current_user || @booking.client == current_user
           @booking.status = :canceled
           @booking.save
           BookingMailer.cancel_booking(@booking).deliver_later

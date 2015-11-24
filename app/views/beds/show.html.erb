@@ -1,14 +1,14 @@
-<div class="banner show-img-cover text-center" style="background-image:url(<%= @territory.picture.url(:large) %>)">
+<div class="banner show-img-cover text-center" style="background-image:url(<%= @bed.picture.url(:large) %>)">
   <div class="gradient"></div>
   <div class="banner-content">
-    <h1 id="territory-name"><%= @territory.name %></h1>
-    <% if policy(@territory).update? %>
-      <%= link_to edit_account_territory_path(@territory), {class: "btn btn-info"} do %>
+    <h1 id="bed-name"><%= @bed.name %></h1>
+    <% if policy(@bed).update? %>
+      <%= link_to edit_account_bed_path(@bed), {class: "btn btn-info"} do %>
         <h5>Editer  <i class="fa fa-pencil"></i> </h5>
       <% end %>
     <% else %>
       <div class="padded">
-        <%= link_to new_account_territory_booking_path(@territory), {class: "btn btn-primary"} do %>
+        <%= link_to new_account_bed_booking_path(@bed), {class: "btn btn-primary"} do %>
           <h5>Réservez maintenant!</h5>
       <% end %>
       </div>
@@ -21,10 +21,10 @@
       <p><strong>Catégorie :</strong></p>
     </div>
     <div class="col-xs-12 col-md-3 text-left">
-      <p><%= @territory.category_text %></p>
+      <p><%= @bed.category_text %></p>
     </div>
     <div class="col-xs-12 col-md-3 text-left">
-      <p><%= number_with_precision(@territory.price, precision: 0) %> € / nuit</p>
+      <p><%= number_with_precision(@bed.price, precision: 0) %> € / nuit</p>
     </div>
   </div>
   <hr>
@@ -33,7 +33,7 @@
       <p><strong>Description :</strong></p>
     </div>
     <div class="col-xs-12 col-md-6 text-left">
-      <p><%= @territory.description %></p>
+      <p><%= @bed.description %></p>
     </div>
   </div>
   <hr>
@@ -42,7 +42,7 @@
       <p><strong>Adresse :</strong></p>
     </div>
     <div class="col-xs-12 col-md-6 text-left">
-      <p><%= @territory.full_address %></p>
+      <p><%= @bed.full_address %></p>
     </div>
   </div>
   <hr>
@@ -51,7 +51,7 @@
       <p><strong>Politique :</strong></p>
     </div>
     <div class="col-xs-12 col-md-6 text-left">
-      <p><%= @territory.policy %></p>
+      <p><%= @bed.policy %></p>
     </div>
   </div>
   <hr>
@@ -60,21 +60,21 @@
       <p><strong>Rencontrez le propriétaire :</strong></p>
     </div>
     <div class="col-xs-12 col-md-3 text-left">
-      <%= link_to profile_path(@territory.owner) do %>
-        <p><%= @territory.owner.first_name %> <%= @territory.owner.last_name %></p>
+      <%= link_to profile_path(@bed.owner) do %>
+        <p><%= @bed.owner.first_name %> <%= @bed.owner.last_name %></p>
       <% end %>
     </div>
     <div class="col-xs-12 col-md-3 text-left">
-      <%= link_to profile_path(@territory.owner) do %>
-        <%= image_tag user_pict(@territory.owner), class: "avatar avatar-large avatar-bordered" %>
+      <%= link_to profile_path(@bed.owner) do %>
+        <%= image_tag user_pict(@bed.owner), class: "avatar avatar-large avatar-bordered" %>
       <% end %>
     </div>
   </div>
   <hr>
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3 text-center">
-      <% if policy(@territory).update? %>
-        <%= link_to new_account_territory_photo_path(@territory), {class: "btn btn-info"} do %>
+      <% if policy(@bed).update? %>
+        <%= link_to new_account_bed_photo_path(@bed), {class: "btn btn-info"} do %>
           <h5>Ajouter une photo  <i class="fa fa-camera"></i> </h5>
         <% end %>
       <% end %>
@@ -83,7 +83,7 @@
   <div class="row">
     <div class="col-xs-12 text-left">
       <div class="row">
-        <% @territory.photos.each do |photo| %>
+        <% @bed.photos.each do |photo| %>
           <%= render 'photo', photo: photo %>
         <% end %>
       </div>
@@ -92,15 +92,15 @@
   <hr>
   <div class="row">
     <div class="col-xs-12 col-md-5 col-md-offset-2 text-left">
-      <% if @territory.reviews.exists? %>
+      <% if @bed.reviews.exists? %>
         <p><strong>Evaluation :</strong></p>
       <% else %>
-        <p><strong><%= @territory.name %> n'a pas encore reçu de commentaire</strong></p>
+        <p><strong><%= @bed.name %> n'a pas encore reçu de commentaire</strong></p>
       <% end %>
     </div>
   </div>
   <div class="row">
-    <% @territory.bookings.each do |booking| %>
+    <% @bed.bookings.each do |booking| %>
       <% booking.reviews.each do |review| %>
         <%= render "review", review: review %>
       <% end %>
@@ -109,11 +109,11 @@
   <hr>
   <div class="row text-center">
     <div class="map-show col-xs-12">
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=14&size=1000x400&sensor=false&maptype=roadmap&markers=color:red|#{@territory.full_address}", class: "img-responsive center-block" %>
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=14&size=1000x400&sensor=false&maptype=roadmap&markers=color:red|#{@bed.full_address}", class: "img-responsive center-block" %>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
-    mixpanel.track("Page Loaded", {"Page Name": "Territory Show"});
+    mixpanel.track("Page Loaded", {"Page Name": "Bed Show"});
 </script>

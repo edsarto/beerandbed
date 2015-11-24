@@ -4,9 +4,9 @@
     <div class="card-bg" style="background-image:url(<%= photo.picture.url %>)">
     </div>
   </div>
-  <% if owner_is_user(photo.territory) %>
+  <% if owner_is_user(photo.bed) %>
     <div class="top-right">
-      <%= link_to account_territory_photo_path(photo.territory, photo), method: :delete do %>
+      <%= link_to account_bed_photo_path(photo.bed, photo), method: :delete do %>
         <h4>
           <i class="fa fa-trash"></i>
         </h4>

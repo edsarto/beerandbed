@@ -14,14 +14,14 @@
     <div class="container" id="search-bar-ind">
       <div class="row">
         <div class="col-xs-12 col-md-12 text-center padding-top padding-bottom">
-            <form role="form" action="/territories/" class="form-inline">
+            <form role="form" action="/beds/" class="form-inline">
               <div class="form-group text-center">
                 <fieldset>
                   <%= text_field_tag :city, params[:city], id: "user_input_autocomplete_address", class: "searchbar-input allwidth-xs form-control", placeholder: "Ville" %>
                 </fieldset>
               </div>
               <div class="form-group">
-                <%= select_tag :category, options_for_select(Territory.category.options(only: @search_categories), params[:category]), prompt: "Catégorie", class: "form-control searchbar-input" %>
+                <%= select_tag :category, options_for_select(Bed.category.options(only: @search_categories), params[:category]), prompt: "Catégorie", class: "form-control searchbar-input" %>
               </div>
               <button type="submit" class="btn btn-primary searchbar-button">Rechercher</button>
             </form>
@@ -33,14 +33,14 @@
     <div class="container hidden-sm hidden-md" id="search-bar-ind-mobile">
       <div class="row">
         <div class="col-xs-12 col-md-12 text-center padding-top padding-bottom">
-          <form role="form" action="/territories/" class="form-inline">
+          <form role="form" action="/beds/" class="form-inline">
             <div class="form-group text-center">
               <fieldset>
                 <%= text_field_tag :city, params[:city], id: "user_input_autocomplete_address_index_mobile", class: "searchbar-input allwidth-xs form-control", placeholder: "Ville" %>
               </fieldset>
             </div>
             <div class="form-group">
-              <%= select_tag :category, options_for_select(Territory.category.options(only: @search_categories), params[:category]), prompt: "Catégorie", class: "form-control searchbar-input" %>
+              <%= select_tag :category, options_for_select(Bed.category.options(only: @search_categories), params[:category]), prompt: "Catégorie", class: "form-control searchbar-input" %>
             </div>
             <button type="submit" id="search-button-mobile" class="btn btn-primary searchbar-button">Rechercher</button>
           </form>
@@ -52,14 +52,14 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 padding-top"></div>
-      <% @territories.each do |territory| %>
-        <%= render 'territory_card', territory: territory %>
+      <% @beds.each do |bed| %>
+        <%= render 'bed_card', bed: bed %>
       <% end %>
     </div>
 
     <div class ="row">
       <div class="col-xs-12 text-center">
-        <%= paginate @territories %>
+        <%= paginate @beds %>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
     </div>
 
     <script type="text/javascript">
-      mixpanel.track("Page Loaded", {"Page Name": "Territory Index"});
+      mixpanel.track("Page Loaded", {"Page Name": "Bed Index"});
     </script>
 
       <% content_for(:after_js) do %>
