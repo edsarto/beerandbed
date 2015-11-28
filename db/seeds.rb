@@ -8,7 +8,7 @@ require 'faker'
   # owner = User.all.sample(1).first
   bed = Bed.new({
     name:      Faker::Book.title,
-    category:  [:hutte, :marais, :autre].sample(1).first,
+    category:  [:bed, :couch, :other].sample(1).first,
     street:    Faker::Address.street_address,
     zipcode:   Faker::Address.zip_code,
     city:      Faker::Address.city,

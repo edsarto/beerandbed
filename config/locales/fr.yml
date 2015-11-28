@@ -68,9 +68,9 @@ fr:
         city: "Ville"
   enumerize:
     category:
-      hutte: 'Hutte de chasse'
-      marais: 'Marais'
-      autre: 'Autre'
+      bed: 'Lit'
+      couch: 'Canapé lit'
+      other: 'Autre'
     status:
       pending: 'En attente'
       confirmed: 'Confirmé'
