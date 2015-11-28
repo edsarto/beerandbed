@@ -13,10 +13,10 @@ require 'faker'
     zipcode:   Faker::Address.zip_code,
     city:      Faker::Address.city,
     price:     rand(100..1000),
-    owner_id:  [1, 2, 3].sample(1).first,
+    owner_id:  1,
     picture:   'http://unsplash.it/800?random'
   })
 
-  bed.save
+  bed.save!
 
 end
