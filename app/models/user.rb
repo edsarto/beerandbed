@@ -92,25 +92,26 @@ class User < ActiveRecord::Base
   end
 
   def create_or_update_wallet
-    self.update_mangopay_profile
+    nil
+    # self.update_mangopay_profile
 
-    params = {
-      "Owners" => ["#{self.mangopay_user_id}"],
-      "Description" => "airgabion Wallet #{self.email}",
-      "Currency" => "EUR"
-    }
+    # params = {
+    #   "Owners" => ["#{self.mangopay_user_id}"],
+    #   "Description" => "airgabion Wallet #{self.email}",
+    #   "Currency" => "EUR"
+    # }
 
-    begin
-      if self.mangopay_wallet_id
-        response = MangoPay::Wallet.update(self.mangopay_wallet_id, params)
-      else
-        response = MangoPay::Wallet.create(params)
-      end
-    rescue MangoPay::ResponseError => e
-    end
+    # begin
+    #   if self.mangopay_wallet_id
+    #     response = MangoPay::Wallet.update(self.mangopay_wallet_id, params)
+    #   else
+    #     response = MangoPay::Wallet.create(params)
+    #   end
+    # rescue MangoPay::ResponseError => e
+    # end
 
-    self.mangopay_wallet_id = response["Id"]
-    self.save
+    # self.mangopay_wallet_id = response["Id"]
+    # self.save
   end
 
 
