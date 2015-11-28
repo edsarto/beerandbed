@@ -13,7 +13,7 @@ class Bed < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
 
-  enumerize :category, in: [:hutte, :marais, :autre]
+  enumerize :category, in: [:bed, :couch, :other]
 
   validates_presence_of :owner, :name, :street, :zipcode, :city, :price, :picture
   validates_format_of :zipcode,
