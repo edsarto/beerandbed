@@ -12,14 +12,14 @@ module Account
 
       @user.update(user_params)
 
-      flash[:notice] = "Merci ! Vos modifications ont bien été prises en compte"
+      flash[:notice] = "Thank you! Your modifications have been taken into account."
       redirect_to edit_account_profile_path(@user)
     end
 
     private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :picture, :bio, :insurance)
+      params.require(:user).permit(:first_name, :last_name, :score, :picture, :bio, :insurance)
     end
   end
 end

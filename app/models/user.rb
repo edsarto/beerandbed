@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :beds,  foreign_key: 'owner_id',  dependent: :destroy
 
   has_one :address
+  has_one :score
 
   has_many :credit_cards, dependent: :destroy
 
@@ -98,7 +99,6 @@ class User < ActiveRecord::Base
     self.mangopay_wallet_id = response["Id"]
     self.save
   end
-
 
 protected
 
