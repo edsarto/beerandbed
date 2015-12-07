@@ -19,7 +19,7 @@ module Account
     private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :picture, :bio, :licence, :stamp, :insurance)
+      params.require(:user).permit(:first_name, :last_name, :picture, :bio, :insurance)
     end
   end
 end

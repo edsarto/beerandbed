@@ -20,18 +20,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
-  has_attached_file :licence,
-    styles: { large: "1000x1000", medium: "300x300>", thumb: "100x100>" }
-
-  validates_attachment_content_type :licence,
-    content_type: /\Aimage\/.*\z/
-
-  has_attached_file :stamp,
-    styles: { large: "1000x1000", medium: "300x300>", thumb: "100x100>" }
-
-  validates_attachment_content_type :stamp,
-    content_type: /\Aimage\/.*\z/
-
   has_attached_file :insurance,
     styles: { large: "1000x1000", medium: "300x300>", thumb: "100x100>" }
 
@@ -39,8 +27,6 @@ class User < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
   process_in_background :picture
-  process_in_background :licence
-  process_in_background :stamp
   process_in_background :insurance
 
   after_create :send_welcome_email
