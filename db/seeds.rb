@@ -13,7 +13,7 @@ require 'faker'
     zipcode:   Faker::Address.zip_code,
     city:      Faker::Address.city,
     price:     rand(10..50),
-    owner_id:  1,
+    owner_id:  [1, 2].sample(1).first,
     picture:   'http://unsplash.it/800?random'
   })
 
