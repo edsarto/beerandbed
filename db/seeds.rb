@@ -12,7 +12,7 @@ require 'faker'
     street:    Faker::Address.street_address,
     zipcode:   Faker::Address.zip_code,
     city:      Faker::Address.city,
-    price:     rand(100..1000),
+    price:     rand(10..50),
     owner_id:  1,
     picture:   'http://unsplash.it/800?random'
   })
