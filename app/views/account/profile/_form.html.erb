@@ -4,19 +4,15 @@
   <div class="row padded">
     <div class="col-xs-12 col-md-4 col-md-offset-1">
       <%= image_tag user_pict(current_user), class: "profile-pict"%>
-      <%= f.input :picture, placeholder: "hello" %>
+      <%= f.input :picture, placeholder: "Hello" %>
     </div>
     <div class="col-xs-12 col-md-3">
       <%= f.input :first_name %>
       <%= f.input :last_name %>
-      <%= f.input :bio %>
+      <%= f.input :bio, placeholder: "Tell us about yourself!" %>
     </div>
   </div>
   <div class="row flex-center">
-<!--   </div>
-  <div class="row"> -->
-<!--   </div>
-  <div class="row"> -->
     <div class="col-xs-12 col-md-3 text-left">
       <%= image_tag insurance_pict(current_user), class: "other-pict" %>
       <%= f.input :insurance %>
