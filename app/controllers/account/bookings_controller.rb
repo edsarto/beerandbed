@@ -34,16 +34,16 @@ module Account
       @booking.status = :checkout
       @booking.checkout_status = :cart
       if Booking.booked?(@bed.id, starting_on, ending_on)
-        flash[:alert] = "Désolé, ce lit a déjà été réservé pour ces dates"
+        flash[:alert] = "Sorry, this bed has already been booked at this date"
         redirect_to new_account_bed_booking_path(@bed)
       elsif Booking.start_date_after_end_date?(starting_on, ending_on)
-        flash[:alert] = "Essayez à nouveau! La date de fin doit être postérieure à la date début de la réservation ;)"
+        flash[:alert] = "Try again! The end date needs to come after the start date the booking ;)"
         redirect_to new_account_bed_booking_path(@bed)
       elsif @booking.save
         # BookingMailer.send_request(@booking).deliver_later A AJOUTER APRES LE PAIMENT
         redirect_to new_account_booking_address_path(@booking)
       else
-        flash[:alert] = "Désolé, nous n'avons pas pu créer votre réservation. Veuillez réessayer !"
+        flash[:alert] = "Sorry, we haven't been able to create your reservation. Please try again!"
         render :new
       end
     end
@@ -51,7 +51,7 @@ module Account
     private
 
     def user_not_authorized
-      flash[:alert] = "Désolé, vous n'êtes pas autorisé à faire cette action"
+      flash[:alert] = "Sorry, you are not authorized to make this action"
       redirect_to(root_path)
     end
 
