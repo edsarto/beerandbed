@@ -56,8 +56,6 @@ fr:
         current_password: "mot de passe actuel"
         password: "mot de passe"
         password_confirmation: "confirmation du mot de passe"
-        licence: "Permis de chasser"
-        stamp: "Validation"
         insurance: "Assurance"
         remember_me: Se souvenir de moi
       address:

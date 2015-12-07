@@ -22,22 +22,6 @@ module ApplicationHelper
     end
   end
 
-  def licence_pict(user)
-    if user.licence.exists?
-      user.licence
-    else
-      "placeholder-image.jpg"
-    end
-  end
-
-  def stamp_pict(user)
-    if user.stamp.exists?
-      user.stamp
-    else
-      "placeholder-image.jpg"
-    end
-  end
-
   def insurance_pict(user)
     if user.insurance.exists?
       user.insurance
