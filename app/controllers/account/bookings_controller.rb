@@ -25,6 +25,8 @@ module Account
     def create
       @booking = @bed.bookings.build(booking_params)
       authorize @booking
+      # @booking.client.score += 10
+      # @booking.owner.score += 20
 
       starting_on = @booking.starting_on
       @booking.ending_on = starting_on + (@booking.nb_days - 1)

@@ -100,7 +100,6 @@ class User < ActiveRecord::Base
     self.save
   end
 
-
 protected
 
   def send_welcome_email
