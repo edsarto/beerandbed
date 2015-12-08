@@ -5,7 +5,7 @@ class ReviewMailer < ApplicationMailer
 
     mail(
       to:       @review.booking.bed.owner.email,
-      subject:  "#{@review.booking.client.first_name} a posté un avis sur votre hutte #{@review.booking.bed.name}!"
+      subject:  "#{@review.booking.client.first_name} posted a review on your bed #{@review.booking.bed.name}!"
     )
   end
 end

@@ -5,7 +5,7 @@ def creation_confirmation(bed)
 
     mail(
       to:       @bed.owner.email,
-      subject:  "Félicatation, votre hutte #{@bed.name} a bien été ajoutée !"
+      subject:  "Congratulations, your bed #{@bed.name} has been added!"
     )
   end
 end

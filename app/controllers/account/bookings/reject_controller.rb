@@ -11,7 +11,7 @@ module Account
 
           redirect_to account_dashboard_path
         else
-          flash[:alert] = "Désolé, vous n'êtes pas autorisé à faire cette action"
+          flash[:alert] = "Sorry, you are not allowed to make this action"
           redirect_to account_dashboard_path
         end
       end

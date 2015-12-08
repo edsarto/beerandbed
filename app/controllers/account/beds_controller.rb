@@ -20,12 +20,12 @@ module Account
       authorize @bed
 
       if @bed.save
-        flash[:notice] = "Merci d'avoir créé un nouveau lit!"
+        flash[:notice] = "Thank you for creating a new bed!"
         BedMailer.creation_confirmation(@bed).deliver_later
         @bed.owner.create_or_update_wallet
         redirect_to account_dashboard_path
       else
-        flash[:alert] = "Désolé, nous n'avons pas pu créer votre nouveau lit. Veuillez réessayer!"
+        flash[:alert] = "Sorry, we haven't been able to create your new bed. Please try again!"
         render :new
       end
     end
@@ -47,7 +47,7 @@ module Account
     private
 
     def user_not_authorized
-      flash[:alert] = "Désolé, vous n'êtes pas autorisé à faire cette action"
+      flash[:alert] = "Sorry, you are not allowed to make this action"
       redirect_to(root_path)
     end
 

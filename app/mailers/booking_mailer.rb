@@ -5,7 +5,7 @@ class BookingMailer < ApplicationMailer
 
     mail(
       to: @booking.bed.owner.email,
-      subject: 'Nouvelle demande de réservation !'
+      subject: 'New booking request!'
       )
   end
 
@@ -14,7 +14,7 @@ class BookingMailer < ApplicationMailer
 
     mail(
       to: @booking.client.email,
-      subject: "Réservation confirmée !"
+      subject: "Booking confirmed!"
       )
   end
 
@@ -23,7 +23,7 @@ class BookingMailer < ApplicationMailer
 
     mail(
       to: @booking.client.email,
-      subject: "#{@booking.bed.owner.first_name} a annulé votre réservation"
+      subject: "#{@booking.bed.owner.first_name} has cancelled your booking"
       )
   end
 
@@ -32,7 +32,7 @@ class BookingMailer < ApplicationMailer
 
     mail(
       to: @booking.bed.owner.email,
-      subject: "La réservation de #{@booking.client.first_name} est annulée"
+      subject: "The booking of #{@booking.client.first_name} is cancelled"
       )
   end
 end

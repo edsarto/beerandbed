@@ -1,13 +1,13 @@
-<p>Bonjour <%=@booking.bed.owner.first_name%>,</p>
+<p>Hi <%=@booking.bed.owner.first_name%>,</p>
 
 
-<p> La réservation de <%= @booking.client.first_name %> pour <strong><%= @booking.bed.name %></strong>, le <strong><%= @booking.starting_on %></strong>, a été annulée.</p>
+<p> The booking of <%= @booking.client.first_name %> for <strong><%= @booking.bed.name %></strong>, on <strong><%= @booking.starting_on %></strong>, has been cancelled.</p>
 
-<p>Vous pouvez visualiser vos réservations sur <%=link_to 'votre dashboard', account_dashboard_url %>.</p>
+<p>You can visualize your reservations on <%=link_to 'your dashboard', account_dashboard_url %>.</p>
 
-<p>Merci pour votre confiance,</p>
-<p>A bientôt sur <%= link_to 'airgabion.com !', root_url %> </p>
+<p>Thank you for your trust,</p>
+<p>See you soon on <%= link_to 'beerandbed.com !', root_url %> </p>
 
 <div>
-  <%= image_tag 'airgabion-logo-03.png', width: '200px' %>
+  <%= image_tag 'beerandbed-logo.jpg', width: '200px' %>
 </div>
