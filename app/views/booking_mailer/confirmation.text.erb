@@ -1,12 +1,12 @@
-Bonjour <%= @booking.client.first_name %>,
+Hi <%= @booking.client.first_name %>,
 
-Votre réservation pour <%= @booking.bed.name %>, à partir du <%= @booking.starting_on %>, sur airgabion.com  est maintenant confirmée !
-Le montant total de cette réservation s'élève à <%=@booking.total_price%>€.
+Your booking for <%= @booking.bed.name %>, from <%= @booking.starting_on %>, on beerandbed.com is now confirmed!
+The total price of this booking is <%=@booking.total_price%>€.
 
-<%= @booking.bed.owner.first_name %> vous a envoyé un message:
+<%= @booking.bed.owner.first_name %> sent you a message:
 <%= @booking.confirmation_message %>
 
-Vous pouvez visualisez vos réservations sur <%=link_to 'votre dashboard', account_dashboard_url(@booking.client) %>.
+You can visualize your resevrations on <%=link_to 'your dashboard', account_dashboard_url(@booking.client) %>.
 
-Merci pour votre confiance,
-A bientôt sur <%= link_to 'airgabion.com !', root_url %>
+Thank you for your trust,
+See you soon on <%= link_to 'beerandbed.com !', root_url %>

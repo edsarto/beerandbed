@@ -28,7 +28,7 @@ module Account
         @booking = Booking.find(params[:booking_id])
 
         if @booking.bed.owner != current_user
-          flash[:alert] = "Désolé, vous n'êtes pas autorisé à faire cette action"
+          flash[:alert] = "Sorry, you are not allowed to make this action"
           redirect_to account_dashboard_path
         end
       end

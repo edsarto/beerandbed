@@ -20,7 +20,7 @@ module Account
 
         if @review.save
           ReviewMailer.create_review(@review).deliver_later
-          flash[:notice] = "Merci d'avoir noté #{@booking.bed.name}!"
+          flash[:notice] = "Thank you for adding a review to #{@booking.bed.name}!"
           redirect_to bed_path(@review.booking.bed)
         else
           render :new
@@ -30,7 +30,7 @@ module Account
       private
 
       def user_not_authorized
-        flash[:alert] = "Désolé, vous n'êtes pas autorisé à faire cette action"
+        flash[:alert] = "Sorry, you are not allowed to make this action"
         redirect_to(root_path)
       end
 

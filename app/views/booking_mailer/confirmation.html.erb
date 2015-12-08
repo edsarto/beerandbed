@@ -1,16 +1,16 @@
-<p>Bonjour <%= @booking.client.first_name %>,</p>
+<p>Hi <%= @booking.client.first_name %>,</p>
 
-<p> Votre réservation pour <strong><%= @booking.bed.name %></strong>, à partir du <strong><%= @booking.starting_on %></strong>, sur airgabion.com  est maintenant confirmée !</p>
-<p>Le montant total de cette réservation s'élève à <strong><%=@booking.total_price%>€</strong>.</p>
+<p> Your booking for <strong><%= @booking.bed.name %></strong>, from <strong><%= @booking.starting_on %></strong>, on beerandbed.com  is now confirmed !</p>
+<p>The total price of this booking is <strong><%=@booking.total_price%>€</strong>.</p>
 
-<p> <%= @booking.bed.owner.first_name %> vous a envoyé un message :</p>
+<p> <%= @booking.bed.owner.first_name %> sent you a message :</p>
 <p> <%= @booking.confirmation_message %></p>
 
-<p>Vous pouvez visualisez vos réservations sur <%=link_to 'votre dashboard', account_dashboard_url(@booking.client) %>.</p>
+<p>You can visualize your reservations on <%=link_to 'your dashboard', account_dashboard_url(@booking.client) %>.</p>
 
-<p>Merci pour votre confiance,</p>
-<p>A bientôt sur <%= link_to 'airgabion.com !', root_url %> </p>
+<p>Thank you for your trust,</p>
+<p>See you soon on <%= link_to 'beerandbed.com !', root_url %> </p>
 
 <div>
-  <%= image_tag 'airgabion-logo-03.png', width: '200px' %>
+  <%= image_tag 'beerandbed-logo.jpg', width: '200px' %>
 </div>

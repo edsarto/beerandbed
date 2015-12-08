@@ -1,14 +1,14 @@
-<p>Bonjour <%= @bed.owner.first_name %>,</p>
+<p>Hi <%= @bed.owner.first_name %>,</p>
 
-<p>Merci d'avoir ajouté <%= @bed.name %> sur airgabion.com !</p>
+<p>Thanks for adding your bed <%= @bed.name %> on beerandbed.com !</p>
 
-<p>Nous vous informerons lorsque d'autres passionnés souhaiteront réserver votre installation.</p>
-<p>En attendant, vous pouvez éditer la page de <%=link_to 'votre gabion', bed_url(@bed) %>, ou louer l'installation d'un autre passionné !</p>
+<p>We will inform you when other members of your network would like to book it.</p>
+<p>In the meantime, you can edit <%=link_to 'your bed', bed_url(@bed) %>, or book someone else's from for your next travel!</p>
 
 
-<p>Merci pour votre confiance,</p>
-<p>A bientôt sur <%= link_to 'airgabion.com !', root_url %> </p>
+<p>Thank you for your trust,</p>
+<p>See you soon on <%= link_to 'beerandbed.com !', root_url %> </p>
 
 <div>
-  <%= image_tag 'airgabion-logo-03.png', width: '200px' %>
+  <%= image_tag 'beerandbed-logo.jpg', width: '200px' %>
 </div>

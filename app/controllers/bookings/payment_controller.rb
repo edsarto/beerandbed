@@ -34,17 +34,17 @@ module Bookings
       @payment.charge
       case @payment.state
       when 'accepted'
-        flash[:notice] = "Merci ! Votre paiement a bien été pris en compte"
+        flash[:notice] = "Thank you, your payment has been taken into account."
         @booking.checkout_status = :paid
         @booking.status = :pending
         @booking.save
         BookingMailer.send_request(@booking).deliver_later
         redirect_to booking_payment_path(@booking)
       when 'refused'
-        flash[:error] = "Désolé, votre paiement a été refusé... merci de bien vouloir réessayer"
+        flash[:error] = "Sorry, your payment has been refused... please try again."
         render :new
       when 'error'
-        flash[:error] = "Désolé, le service de paiement est momentanément indisponible..."
+        flash[:error] = "Sorry, the payment service is not available at the moment..."
         render :new
       else
         flash[:error] = "42"
