@@ -25,8 +25,6 @@ module Account
     def create
       @booking = @bed.bookings.build(booking_params)
       authorize @booking
-      # @booking.client.score += 10
-      # @booking.owner.score += 20
 
       starting_on = @booking.starting_on
       @booking.ending_on = starting_on + (@booking.nb_days - 1)
@@ -35,6 +33,8 @@ module Account
       @booking.client = current_user
       @booking.status = :checkout
       @booking.checkout_status = :cart
+      @booking.client.score += 10
+      @booking.bed.owner.score += 20
       if Booking.booked?(@bed.id, starting_on, ending_on)
         flash[:alert] = "Sorry, this bed has already been booked at this date"
         redirect_to new_account_bed_booking_path(@bed)
