@@ -11,6 +11,9 @@
       <%= f.input :last_name %>
       <%= f.input :bio, placeholder: "Tell us about yourself!" %>
     </div>
+    <div class="col-xs-12 col-md-6">
+      <h2>Your score: <%= @user.points %></h2>
+    </div>
   </div>
   <div class="row flex-center">
     <div class="col-xs-12 col-md-3 text-left">

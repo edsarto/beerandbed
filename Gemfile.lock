@@ -56,6 +56,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    ambry (0.3.1)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.3)
@@ -190,6 +191,8 @@ GEM
       nokogiri (~> 1.4)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
+    merit (2.3.2)
+      ambry (~> 0.3.0)
     mime-types (2.6.2)
     mimemagic (0.3.0)
     mini_portile (0.6.2)
@@ -377,6 +380,7 @@ DEPENDENCIES
   letter_opener
   mangopay
   mechanize
+  merit
   money-rails
   omniauth-facebook
   paperclip

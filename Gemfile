@@ -25,8 +25,9 @@ gem 'enumerize'
 #scraping with log in on chasseur de migrateurs
 gem 'mechanize'
 
-gem 'money-rails'
+gem 'merit'
 
+gem 'money-rails'
 
 #mango-pay to insert payment
 gem 'mangopay'
