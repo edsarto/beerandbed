@@ -13,6 +13,13 @@ module Merit
     include Merit::PointRulesMethods
 
     def initialize
+      score 20, on: 'account/bookings/reviews#create', model_name: 'reviews'
+      score 20, on: 'account/bookings/accept#create', model_name: 'accept'
+
+      score -20, on: 'account/bookings/reject#create', model_name: 'reject' do |booking|
+        current_user == @booking.bed.owner?
+      end
+
       # score 10, :on => 'users#create' do |user|
       #   user.bio.present?
       # end
