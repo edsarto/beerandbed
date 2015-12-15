@@ -13,6 +13,7 @@
         </div>
       </div>
     </div>
+    <% if user_signed_in? %>
     <div class="container" id="search-bar">
       <div class="row">
         <div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
@@ -30,19 +31,21 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
+  <% if user_signed_in? %>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 padding-top">
-        <h5><strong>Chassez dans les meilleures huttes de France</strong></h5>
+        <h5><strong>Find a great place to stay and connect with your peers !</strong></h5>
       </div>
       <% @beds.each do |bed| %>
       <%= render 'beds/bed_card', bed: bed %>
       <% end %>
     </div>
   </div>
-</div>
+  <% end %>
 
 <script type="text/javascript">
     mixpanel.track("Page Loaded", {"Page Name": "Home Page"});
