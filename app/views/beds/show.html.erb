@@ -1,118 +1,120 @@
-<div class="banner show-img-cover text-center" style="background-image:url(<%= @bed.picture.url(:large) %>)">
-  <div class="gradient"></div>
-  <div class="banner-content">
-    <h1 id="bed-name"><%= @bed.name %></h1>
-    <% if policy(@bed).update? %>
-      <%= link_to edit_account_bed_path(@bed), {class: "btn btn-info"} do %>
-        <h5>Edit  <i class="fa fa-pencil"></i> </h5>
-      <% end %>
-    <% else %>
-      <div class="padded">
-        <%= link_to new_account_bed_booking_path(@bed), {class: "btn btn-primary"} do %>
-          <h5>Book now!</h5>
-      <% end %>
-      </div>
-    <% end %>
-  </div>
-</div>
-<div class="content container">
-  <div class="row">
-    <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
-      <p><strong>Catégory :</strong></p>
-    </div>
-    <div class="col-xs-12 col-md-3 text-left">
-      <p><%= @bed.category_text %></p>
-    </div>
-    <div class="col-xs-12 col-md-3 text-left">
-      <p><%= number_with_precision(@bed.price, precision: 0) %> € / nuit</p>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
-      <p><strong>Description :</strong></p>
-    </div>
-    <div class="col-xs-12 col-md-6 text-left">
-      <p><%= @bed.description %></p>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
-      <p><strong>Address :</strong></p>
-    </div>
-    <div class="col-xs-12 col-md-6 text-left">
-      <p><%= @bed.full_address %></p>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
-      <p><strong>Policy :</strong></p>
-    </div>
-    <div class="col-xs-12 col-md-6 text-left">
-      <p><%= @bed.policy %></p>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
-      <p><strong>Meet the owner :</strong></p>
-    </div>
-    <div class="col-xs-12 col-md-3 text-left">
-      <%= link_to profile_path(@bed.owner) do %>
-        <p><%= @bed.owner.first_name %> <%= @bed.owner.last_name %></p>
-      <% end %>
-    </div>
-    <div class="col-xs-12 col-md-3 text-left">
-      <%= link_to profile_path(@bed.owner) do %>
-        <%= image_tag user_pict(@bed.owner), class: "avatar avatar-large avatar-bordered" %>
-      <% end %>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3 text-center">
+<% if user_signed_in? %>
+  <div class="banner show-img-cover text-center" style="background-image:url(<%= @bed.picture.url(:large) %>)">
+    <div class="gradient"></div>
+    <div class="banner-content">
+      <h1 id="bed-name"><%= @bed.name %></h1>
       <% if policy(@bed).update? %>
-        <%= link_to new_account_bed_photo_path(@bed), {class: "btn btn-info"} do %>
-          <h5>Add a picture  <i class="fa fa-camera"></i> </h5>
+        <%= link_to edit_account_bed_path(@bed), {class: "btn btn-info"} do %>
+          <h5>Edit  <i class="fa fa-pencil"></i> </h5>
         <% end %>
+      <% else %>
+        <div class="padded">
+          <%= link_to new_account_bed_booking_path(@bed), {class: "btn btn-primary"} do %>
+            <h5>Book now!</h5>
+        <% end %>
+        </div>
       <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12 text-left">
-      <div class="row">
-        <% @bed.photos.each do |photo| %>
-          <%= render 'photo', photo: photo %>
+  <div class="content container">
+    <div class="row">
+      <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
+        <p><strong>Catégory :</strong></p>
+      </div>
+      <div class="col-xs-12 col-md-3 text-left">
+        <p><%= @bed.category_text %></p>
+      </div>
+      <div class="col-xs-12 col-md-3 text-left">
+        <p><%= number_with_precision(@bed.price, precision: 0) %> € / nuit</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
+        <p><strong>Description :</strong></p>
+      </div>
+      <div class="col-xs-12 col-md-6 text-left">
+        <p><%= @bed.description %></p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
+        <p><strong>Address :</strong></p>
+      </div>
+      <div class="col-xs-12 col-md-6 text-left">
+        <p><%= @bed.full_address %></p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
+        <p><strong>Policy :</strong></p>
+      </div>
+      <div class="col-xs-12 col-md-6 text-left">
+        <p><%= @bed.policy %></p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12 col-md-3 col-md-offset-2 text-left">
+        <p><strong>Meet the owner :</strong></p>
+      </div>
+      <div class="col-xs-12 col-md-3 text-left">
+        <%= link_to profile_path(@bed.owner) do %>
+          <p><%= @bed.owner.first_name %> <%= @bed.owner.last_name %></p>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-md-3 text-left">
+        <%= link_to profile_path(@bed.owner) do %>
+          <%= image_tag user_pict(@bed.owner), class: "avatar avatar-large avatar-bordered" %>
         <% end %>
       </div>
     </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12 col-md-5 col-md-offset-2 text-left">
-      <% if @bed.reviews.exists? %>
-        <p><strong>Review :</strong></p>
-      <% else %>
-        <p><strong><%= @bed.name %> hasn't got any review yet</strong></p>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3 text-center">
+        <% if policy(@bed).update? %>
+          <%= link_to new_account_bed_photo_path(@bed), {class: "btn btn-info"} do %>
+            <h5>Add a picture  <i class="fa fa-camera"></i> </h5>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-left">
+        <div class="row">
+          <% @bed.photos.each do |photo| %>
+            <%= render 'photo', photo: photo %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12 col-md-5 col-md-offset-2 text-left">
+        <% if @bed.reviews.exists? %>
+          <p><strong>Review :</strong></p>
+        <% else %>
+          <p><strong><%= @bed.name %> hasn't got any review yet</strong></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <% @bed.bookings.each do |booking| %>
+        <% booking.reviews.each do |review| %>
+          <%= render "review", review: review %>
+        <% end %>
       <% end %>
     </div>
-  </div>
-  <div class="row">
-    <% @bed.bookings.each do |booking| %>
-      <% booking.reviews.each do |review| %>
-        <%= render "review", review: review %>
-      <% end %>
-    <% end %>
-  </div>
-  <hr>
-  <div class="row text-center">
-    <div class="map-show col-xs-12">
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=14&size=1000x400&sensor=false&maptype=roadmap&markers=color:red|#{@bed.full_address}", class: "img-responsive center-block" %>
+    <hr>
+    <div class="row text-center">
+      <div class="map-show col-xs-12">
+        <%= image_tag "https://<maps class="googleapis "> </maps>com/maps/api/staticmap?zoom=14&size=1000x400&sensor=false&maptype=roadmap&markers=color:red|#{<@bed class=""></@bed>full_address}", class: "img-responsive center-block" %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <script type="text/javascript">
     mixpanel.track("Page Loaded", {"Page Name": "Bed Show"});
